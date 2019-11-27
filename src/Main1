@@ -1,0 +1,95 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            String str1=  sc.nextLine();
+            String str2 = sc.nextLine();
+            String str3 = sc.nextLine();
+            String str4 = sc.nextLine();
+            int[]arr = new int[26];
+            int[]arrs = new int[26];
+            char a = 'A';
+            char[]chars=new char[26];
+            for(int i = 0;i<chars.length;i++){
+                chars[i]=a;
+                a++;
+            }
+            char[]str11=str1.toCharArray();
+            char[]str22=str2.toCharArray();
+            char[]str33=str3.toCharArray();
+            char[]str44=str4.toCharArray();
+            for(int i = 0;i<str11.length;i++) {
+                for (int j = 0; j < chars.length; j++) {
+                    if (str11[i]==chars[j]){
+                        arr[j]++;
+                        arrs[j]++;
+                    }
+                }
+            }
+            for(int i = 0;i<str22.length;i++) {
+                for (int j = 0; j < chars.length; j++) {
+                    if (str22[i]==chars[j]){
+                        arr[j]++;
+                        arrs[j]++;
+                    }
+                }
+            }
+            for(int i = 0;i<str33.length;i++) {
+                for (int j = 0; j < chars.length; j++) {
+                    if (str33[i]==chars[j]){
+                        arr[j]++;
+                        arrs[j]++;
+                    }
+                }
+            }
+            char b = 'A';
+            for(int i = 0;i<str44.length;i++) {
+                for (int j = 0; j < chars.length; j++) {
+                    if (str44[i]==chars[j]){
+                        arr[j]++;
+                        arrs[j]++;
+                    }
+                }
+            }
+            Arrays.sort(arrs);
+           int max = arrs[arrs.length-1];
+           char[][]hh=new char[max+1][26];
+           for(int j = 0;j<hh[0].length;j++){
+               for(int k = 0;k<hh.length;k++){
+                    if(k+1==hh.length){
+                        hh[k][j]=b;
+                        b++;
+                        continue;
+                    }
+                   if(k>=max-arr[j]){
+                       hh[k][j]='*';
+                       continue;
+                   }
+
+                   hh[k][j]=' ';
+
+               }
+           }
+
+
+
+
+
+           for(int i = 0;i<hh.length;i++){
+                for(int j = 0;j<hh[0].length;j++) {
+                    if (j == 0) {
+                        System.out.print(hh[i][j]);
+                    }else{
+                        System.out.print(" "+hh[i][j]);
+                    }
+                }
+                System.out.println();
+            }
+
+        }
+    }
+}
