@@ -16,6 +16,7 @@ public class Main {
                     sum++;
             }
         }
+        //wo xiu gai le daima
         if(sum==0){
             System.out.println(-1);
         }else{
