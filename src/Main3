@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int sum=1;
+        double sum2 = 1;
+        System.out.println("n"+" "+"e");
+        System.out.println("- -----------");//必须跟题目给出的格式一模一样！！！记住！
+
+            for(int n = 0;n<=9;n++) {
+                if (n == 0) {
+                    System.out.print(n + " " + 1);
+                    System.out.println();
+                    continue;
+                } else {
+                    for (int i = 1; i <= n; i++) {
+                        sum *= i;
+                    }
+                    sum2 += 1.0 / sum;
+                }
+                if (n > 2) {//当n>2时保留九位小数
+                    System.out.print(n + " " );
+                    System.out.printf("%.9f",sum2);
+                    System.out.println();
+                    sum = 1;//阶乘之后应该让sum归1，不然sum的值不是从开始乘。
+                }else if(n==1){
+                    System.out.print(n+" "+(int)sum2);
+                    System.out.println();
+                    sum=1;
+                }else{
+                    System.out.print(n+" "+sum2);
+                    System.out.println();
+                    sum=1;
+                }
+            }
+        }
+
+    }
+
+
+
