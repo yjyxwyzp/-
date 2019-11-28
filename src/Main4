@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            String str = sc.nextLine();
+            char[] chars = str.toCharArray();
+            int sum = 0;
+            for (int i = 0; i < chars.length; i++) {
+                sum += chars[i] - '0';
+            }
+            if(sum==0){
+                break;
+            }
+            int p = 0;
+            int k = 0;
+            if (sum >= 10) {
+                while (p == 0) {
+                    k += sum % 10;
+                    sum /= 10;
+                    if (sum == 0) {
+                        if (k >= 10) {
+                            sum = k;
+                            k = 0;
+                        } else {
+                            System.out.println(k);
+                            break;
+                        }
+                    }
+
+                }
+            } else {
+                System.out.println(sum);
+            }
+
+        }
+    }
+
+}
