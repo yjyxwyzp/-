@@ -1,0 +1,48 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            sc.nextLine();
+            while(n-->0){
+            String str = sc.nextLine();
+            char []chars = str.toCharArray();
+            int p = 1;
+                for (int i = 1; i <chars.length ; i++) {
+                    if(chars[i]==chars[i-1]){
+                        p++;
+                    }else{
+                        if(p==1){
+                            System.out.print(chars[i-1]);
+                        }else {
+                            System.out.print(p);
+                            System.out.print(chars[i-1]);
+                            p = 1;
+                        }
+                    }
+                }
+                int o = 1;
+                for (int i = chars.length-1; i >0 ; i--) {
+                    if(chars[i-1]==chars[i]){
+                        o++;
+                    }else{
+                        if(o==1){
+                            System.out.print(chars[i]);
+                            break;
+                        }else{
+                            System.out.print(o);
+                            System.out.print(chars[i]);
+                            break;
+                        }
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+    }
+
