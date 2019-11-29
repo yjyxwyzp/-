@@ -1,0 +1,59 @@
+    import java.util.ArrayList;
+    import java.util.Arrays;
+    import java.util.List;
+    import java.util.Scanner;
+
+    public class Main {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while (sc.hasNext()) {
+            String str = sc.nextLine();
+            int oo=0;
+            String[]strs = str.split(" ");
+            int ff=Integer.parseInt(strs[0]);//将字符串转换成整形以便下面
+            if(ff==0|strs[1].equals("END")){//考虑问题要全面
+
+                break;
+            }
+            char []chars = strs[1].toCharArray();
+            Arrays.sort(chars);
+                ff:for (int i = chars.length-1; i >=0;i--) {
+                    for (int j = 0; j <chars.length ; j++) {
+                        for (int k = 0; k <chars.length ; k++) {
+                            for (int l = 0; l <chars.length ; l++) {
+                                for (int m = 0; m <chars.length ; m++) {
+                                    int ii=chars[i]-64;//此题精华之处，A到B按1到26给的值运算，因为A的ascii码等于65.65-64等于1
+                                    int jj=chars[j]-64;//B66 66-64=2   C67 67-64=3  
+                                    int kk=chars[k]-64;
+                                    int ll=chars[l]-64;
+                                    int mm=chars[m]-64;
+
+                                    if(ii-Math.pow(jj,2)+Math.pow(kk,3)-Math.pow(ll,4)+Math.pow(mm,5)==ff){
+                                        if(chars[i]!=chars[j]&chars[i]!=chars[k]&chars[i]!=chars[l]&chars[i]!=chars[m]&chars[j]!=chars[k]&chars[j]!=chars[l]&chars[j]!=chars[m]&chars[k]!=chars[l]&chars[k]!=chars[m]&chars[l]!=chars[m]) {
+                                            System.out.print(chars[i]);
+                                            System.out.print(chars[j]);
+                                            System.out.print(chars[k]);
+                                            System.out.print(chars[l]);
+                                            System.out.print(chars[m]);
+                                            System.out.println();
+                                            oo++;
+                                            break ff;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if(oo==0){
+                    System.out.println("no solution");
+                }
+            }
+        }
+    }
+
+
+
+
+
+
