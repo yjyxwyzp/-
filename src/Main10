@@ -1,0 +1,53 @@
+    import java.lang.reflect.Array;
+    import java.util.Arrays;
+    import java.util.Scanner;
+
+    public class Main1 {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while(sc.hasNext()){
+                int i = sc.nextInt();
+                int a = i;
+                int b =i;
+                int j = sc.nextInt();
+                int u=j;
+                if(i>j){
+                    int temp = i;
+                    i=j;
+                    j=temp;
+                }
+                int p = 1;
+                int jj=0;
+                int []arr = new int[j-i+1];
+                for (int k = i; k <=j ; k++) {
+                    a=k;
+                    while(a!=1){
+                        if(a%2==0){
+                            a=a/2;
+                            p++;
+                        }else{
+                            a=a*3+1;
+                            p++;
+                        }
+                    }
+                    arr[jj]=p;
+                    jj++;
+                    p=1;
+                }
+                Arrays.sort(arr);
+                if(b<u){
+                System.out.print(i+" "+j+" "+arr[arr.length-1]);
+                System.out.println();
+            }else{
+                    System.out.print(j+" "+i+" "+arr[arr.length-1]);
+                    System.out.println();
+                }
+            }
+        }
+        }//此题顺序特别坑！！ 没有说明i和j的大小。所以如果i大于j，需要数据对调，但是如果对调了 最后还是要输出元顺序
+        // 比如 i等于10 j等于1
+        //数据交换 i等于1 j等于10；
+        //输出 1 10；
+        //但是应该输出 10 1
+        
+
