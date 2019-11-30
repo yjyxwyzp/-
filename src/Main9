@@ -1,0 +1,71 @@
+    import java.util.*;
+
+    public class Main {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while (sc.hasNext()) {
+                int n = sc.nextInt();
+                int m = sc.nextInt();
+                int k = sc.nextInt();
+                double[] arrs = new double[m];
+                double[] arry = new double[m];
+                double[][] arr = new double[n][m];
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = 0; j < arr[0].length; j++) {
+                        arr[i][j] = sc.nextDouble();
+                    }
+                }
+                double sum = 0;
+                for (int i = 0; i < arr[0].length; i++) {
+                    for (int j = 0; j < arr.length; j++) {
+                        sum += arr[j][i];
+                    }
+                    arrs[i] = sum;
+                    arry[i]=sum;
+                    sum = 0;
+                }
+                Arrays.sort(arrs);
+                int p = 0;
+                double []tt = new double[k];
+                for (int i = m-k; i <arrs.length; i++) {
+                    tt[p]=arrs[i];//max
+                    p++;
+                }
+                Set<Integer>sets = new TreeSet<Integer>();
+                for (int i = 0; i <tt.length ; i++) {
+                    for (int j = 0; j <arry.length ; j++) {
+                        if(sets.contains(j+1)){
+                            continue;
+                        }
+                        if(tt[i]==arry[j]){
+                            sets.add(j+1);
+                            break;
+                        }
+                    }
+                }
+                int[]ff = new int[k];
+                int jj=0;
+                for (int i:sets){
+                    ff[jj]=i;
+                    jj++;
+                }
+                Arrays.sort(ff);
+                for (int i = ff.length-1; i >=0 ; i--) {
+                    if(i==ff.length-1){
+                    System.out.print(ff[i]);
+                }else{
+                        System.out.print(" "+ff[i]);
+                    }
+                }
+                System.out.println();
+            }
+
+
+        }
+    }
+
+
+
+
+
+
