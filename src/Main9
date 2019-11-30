@@ -34,11 +34,11 @@
                 Set<Integer>sets = new TreeSet<Integer>();
                 for (int i = 0; i <tt.length ; i++) {
                     for (int j = 0; j <arry.length ; j++) {
-                        if(sets.contains(j+1)){
+                        if(sets.contains(j+1)){//因为列数不能重复。所以如果添加过这个元素，则不能继续添加，从下一个开始寻找
                             continue;
                         }
                         if(tt[i]==arry[j]){
-                            sets.add(j+1);
+                            sets.add(j+1);//如果没有这个元素。则开始新的循环
                             break;
                         }
                     }
@@ -46,7 +46,7 @@
                 int[]ff = new int[k];
                 int jj=0;
                 for (int i:sets){
-                    ff[jj]=i;
+                    ff[jj]=i;//放入数组，以便逆序输出
                     jj++;
                 }
                 Arrays.sort(ff);
@@ -57,7 +57,8 @@
                         System.out.print(" "+ff[i]);
                     }
                 }
-                System.out.println();
+                System.out.println();//空格问题，切记不要忘记
+                
             }
 
 
