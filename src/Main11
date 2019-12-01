@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int n = sc.nextInt();// 5555
+            if(n==0){
+                break;
+            }
+            int a = n / 1000;
+            int b = n / 100 % 10;
+            int c = n / 10 % 10;
+            int d = n % 10;
+            int sum = a + b + c + d;
+            String str = Integer.toString(n, 16);
+            String strs = str.toUpperCase();
+            char[] chars = strs.toCharArray();
+            int sum2 = 0;
+            for (int i = 0; i < chars.length; i++) {
+                if (chars[i] == 'A' | chars[i] == 'B' | chars[i] == 'C' | chars[i] == 'D' | chars[i] == 'E'
+                        | chars[i] == 'F') {
+                    sum2 += chars[i] - 55;
+
+                    continue;
+                }
+                sum2 += chars[i] - '0';
+            }
+            int sum3 = 0;
+            String arr = Integer.toString(n, 12);
+            String arrs = arr.toUpperCase();
+            char[] charss = arrs.toCharArray();
+            for (int i = 0; i < charss.length; i++) {
+                if (charss[i] == 'A' | charss[i] == 'B') {
+                    sum3 += charss[i] - 55;
+                    continue;
+                }
+                sum3 += charss[i] - '0';
+            }
+            if (sum == sum2 & sum == sum3 & sum2 == sum3) {
+                System.out.println(n + " is a Sky Number.");
+            } else {
+                System.out.println(n + " is not a Sky Number.");
+            }
+            }
+
+        }
+
+    }
+
+}
