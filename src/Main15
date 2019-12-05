@@ -1,0 +1,71 @@
+        //题目思路可以，但是输入输出有点恶心 。。有很多细节。比如小时化秒是乘3600不是3600，这个地方错了他妈半小时，输出格式有细节而且要注意是分钟没千米，
+  不是千米每分钟
+  
+  
+  import java.util.*;
+
+    public class Main {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();
+            double s = sc.nextDouble();
+            while (sc.hasNext()) {
+            String t = sc.next();
+            String str = sc.nextLine();
+            String strs[]=str.split(" ");// 0:23:21 0:25:01
+                int[][]arr = new int[n][3];
+                int jj=0;
+               ff: for (int i = 0; i <arr.length ; i++) {
+                    String arrs[]=strs[i+1].split(":");
+                    for (int j = 0; j <arr[0].length ; j++) {
+                        if(arrs[j].equals("-")){
+                        jj++;
+                        break ff;
+                        }
+                        arr[i][j]=Integer.parseInt(arrs[j]);
+                    }
+                }
+                int sum = 0;
+                if(jj==0) {
+                    for (int i = 0; i < arr.length; i++) {
+                        for (int j = 0; j < arr[0].length; j++) {
+                            if (j == 0) {
+                                sum += arr[i][j] * 3600;
+                            } else if (j == 1) {
+                                sum += arr[i][j] * 60;
+                            } else if (j == 2) {
+                                sum += arr[i][j];
+                            }
+                        }
+                    }
+                }
+                if(jj==0) {
+                    double v = sum / s;
+                    double a = Math.rint(v);
+                    System.out.printf("%3d",Integer.parseInt(t));
+                    System.out.print(": ");
+                    System.out.print((int)a/60+":");
+
+                    if(a%60>=0&a%60<=9){
+                        System.out.print("0"+(int)a%60);
+                    }else{
+                        System.out.print((int)a%60);
+                    }
+                    System.out.print(" min/km");
+                    System.out.println();
+                }else{
+                    System.out.printf("%3d",Integer.parseInt(t));
+                    System.out.print(": ");
+                    System.out.print("-");
+                    System.out.println();
+                }
+                }
+            }
+            }
+
+
+
+
+
+
+
