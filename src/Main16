@@ -1,0 +1,49 @@
+///对每个值的处理要细腻
+    import java.util.Scanner;
+
+    public class Main1 {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while(sc.hasNext()){
+             int n = sc.nextInt();
+             int m = sc.nextInt();
+             int a = m;
+             int jj=0;
+             int[]arr = new int[n+1];
+             int sum=2;
+                for (int i = 1; i <arr.length ; i++) {
+                    arr[i]=sum;
+                    sum+=2;
+                }
+                int sum2=0;
+                for (int i = 1; i <=m ; i++) {
+                sum2+=arr[i];
+                if(i+1==arr.length&i<m){
+                    if(jj==0) {
+                        System.out.print(sum2 / (n % a));
+                        jj++;
+                    }else{
+                        System.out.print(" "+sum2/(n % a));
+                    }
+                    break;
+                }
+                if(i==m){
+                    if(jj==0) {
+                        System.out.print(sum2 / a);
+                        jj++;
+                    }else{
+                        System.out.print(" "+sum2/a);
+                    }
+                    if(i+1==arr.length){
+                        break;
+                    }
+                    m+=a;
+                    sum2=0;
+
+                    }
+                }
+                System.out.println();
+                }
+            }
+                }
+
