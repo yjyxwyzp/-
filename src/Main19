@@ -1,0 +1,50 @@
+    
+    //注意录数的顺序，当输入为endofinput时直接break；str1 str2录不到数。所以只能放到break的下面。而不能放到break的上面
+    
+    
+    import java.lang.reflect.Array;
+    import java.util.Arrays;
+    import java.util.Scanner;
+
+    public class Main1 {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+             while(sc.hasNext()){
+                 String str = sc.nextLine();
+                 if(str.equals("ENDOFINPUT")){
+                     break;
+                 }
+                 String str1 = sc.nextLine();
+                 String str2 = sc.nextLine();
+                 char[]chars = str1.toCharArray();
+                 for (int i = 0; i <chars.length ; i++) {
+                     if (chars[i] >= 'A' & chars[i] <= 'Z') {
+                         if (chars[i] == 'A') {
+                             chars[i] = 'V';
+                             continue;
+                         } else if (chars[i] == 'B') {
+                             chars[i] = 'W';
+                             continue;
+                         } else if (chars[i] == 'C') {
+                             chars[i] = 'X';
+                             continue;
+                         } else if (chars[i] == 'D') {
+                             chars[i] = 'Y';
+                             continue;
+                         } else if (chars[i] == 'E') {
+                             chars[i] = 'Z';
+                             continue;
+                         }
+                         chars[i] = (char) (chars[i] - 5);
+                     }
+                 }
+                for(char i:chars){
+                    System.out.print(i);
+                }
+                 System.out.println();
+
+
+            }
+            }
+                }
+
