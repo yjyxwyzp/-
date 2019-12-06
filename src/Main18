@@ -1,0 +1,38 @@
+//此题不需要while（sc.hasnext）
+
+import java.util.Scanner;
+
+public class Main2 {
+    public static void main(String[] args) {
+        Scanner w1170 = new Scanner(System.in);
+        int n = w1170.nextInt();
+        while (n-- > 0) {
+            String in = w1170.next();
+            int a, b;
+            a = w1170.nextInt();
+            b = w1170.nextInt();
+            if (in.equals("+")) {
+                System.out.println(a + b);
+            }
+            else if (in.equals("-")) {
+                System.out.println(a - b);
+            }
+            else if (in.equals("*")) {
+                System.out.println(a * b);
+            }
+            else {
+                if (a % b == 0) {
+                    System.out.println(a / b);
+                }
+                else {
+                    System.out.printf("%.2f",( a /(double) b));
+                    System.out.println();
+                }
+            }
+
+
+
+            }
+        }
+    }
+
