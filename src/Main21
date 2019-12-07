@@ -1,0 +1,52 @@
+//知识点，字符串的分离 还有如何从连续空格中提取目标字符串 如 ---iove----oo（spilt（“ +”））此方法可以去除连续的空格
+    import java.lang.reflect.Array;
+    import java.util.Arrays;
+    import java.util.Scanner;
+
+    public class Main1 {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+             while(sc.hasNext()){
+             int n = sc.nextInt();
+             sc.nextLine();
+             while(n-->0) {
+                 String str = sc.nextLine();
+                 char[] chars = str.toCharArray();
+                 String[] strs = str.split(" +");
+                 if (chars[0] == ' ') {
+                     int p = 1;
+                     for (int i = 0; i < chars.length; i++) {
+                         if (chars[i] != ' ') {
+                             String[] arr = strs[p].split("");
+                             for (int j = arr.length - 1; j >= 0; j--) {
+                                 System.out.print(arr[j]);
+                             }
+                             p++;
+                             i += arr.length - 1;
+                             continue;
+                         }
+                         System.out.print(chars[i]);
+                     }
+                     System.out.println();
+                 }else{
+                     int p = 0;
+                     for (int i = 0; i < chars.length; i++) {
+                         if (chars[i] != ' ') {
+                             String[] arr = strs[p].split("");
+                             for (int j = arr.length - 1; j >= 0; j--) {
+                                 System.out.print(arr[j]);
+                             }
+                             p++;
+                             i += arr.length - 1;
+                             continue;
+                         }
+                         System.out.print(chars[i]);
+                     }
+                     System.out.println();
+
+                 }
+             }
+            }
+            }
+                }
+
