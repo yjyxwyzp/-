@@ -1,0 +1,80 @@
+   //之前望而生怯的题现在可以一遍ac，我真的进步了，加油
+
+    import java.math.BigInteger;
+    import java.util.*;
+
+    public class Main {
+
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while(sc.hasNext()){
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            int[][]arr = new int[n][m];
+                for (int i = 0; i <arr.length ; i++) {
+                    for (int j = 0; j <arr[0].length ; j++) {
+                        arr[i][j]=sc.nextInt();
+                    }
+                }
+                double sum=0;
+                for (int i = 0; i <arr.length ; i++) {
+                    for (int j = 0; j <arr[0].length; j++) {
+                    sum+=arr[i][j];
+                    }
+                    if(i==0){
+                    System.out.printf("%.2f",sum/m);
+                }else{
+                        System.out.print(" ");
+                        System.out.printf("%.2f",sum/m);
+                    }
+                    sum=0;
+                }
+                System.out.println();
+                double sum2 = 0;
+                double []arrs = new double[m];
+                for (int i = 0; i <arr[0].length ; i++) {
+                    for (int j = 0; j <arr.length ; j++) {
+                        sum2+=arr[j][i];
+                    }
+                    if(i==0){
+                        System.out.printf("%.2f",sum2/n);
+                        arrs[i]=sum2/n;
+                    }else{
+                        System.out.print(" ");
+                        System.out.printf("%.2f",sum2/n);
+                        arrs[i]=sum2/n;
+                    }
+                    sum2=0;
+                }
+                int jj = 0;
+                int sum3=0;
+                System.out.println();
+                for (int i = 0; i <arr.length ; i++) {
+                    for (int j = 0; j <arr[0].length ; j++) {
+                        if(arr[i][j]>=arrs[j]){
+                            jj++;
+                        }
+                    }
+                    if(jj==m){
+                        sum3++;
+                    }
+                    jj=0;
+                }
+                System.out.println(sum3);
+                System.out.println();
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
