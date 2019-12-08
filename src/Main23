@@ -1,0 +1,33 @@
+   
+//干货满满，大数的用法还有打表操作的实现，感谢18级学长王琪的指导，真心感谢
+
+
+ import java.math.BigInteger;
+    import java.util.*;
+
+    public class Main {
+        public static void main(String[] args) {
+            BigInteger[]arr = new BigInteger[1000];
+            arr[1]=BigInteger.ZERO;
+            arr[2]=BigInteger.ONE;
+            arr[3]=BigInteger.ONE;
+            for (int i = 4; i <arr.length ; i++) {
+                arr[i] = arr[i-1].add(arr[i-2].multiply(BigInteger.valueOf(2)));
+            }
+            Scanner sc = new Scanner(System.in);
+            while(sc.hasNext()){
+                int n =sc.nextInt();
+                System.out.println(arr[n]);
+            }
+            }
+            }
+
+
+
+
+
+
+
+
+
+
