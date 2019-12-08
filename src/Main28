@@ -1,0 +1,55 @@
+   //set集合的运用，set集合的特点 按照升序对数字进行排序，只保留唯一数字 
+   
+   import java.math.BigInteger;
+    import java.util.*;
+
+    public class Main {
+
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while(sc.hasNext()){
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            if(n==0&m==0){
+                break;
+            }
+            Set<Integer>sets= new TreeSet<>();
+                for (int i = 0; i <n ; i++) {
+                    sets.add(sc.nextInt());
+                }
+                for (int i = 0; i <m ; i++) {
+                    int a = sc.nextInt();
+                    if(sets.contains(a)){
+                        sets.remove(a);
+                    }
+                }
+
+                if(sets.isEmpty()){
+                    System.out.println("NULL");
+                }else{
+                    for (Integer i:sets){
+
+                            System.out.print(i+" ");
+
+                    }
+
+                    System.out.println();
+                }
+                }
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
