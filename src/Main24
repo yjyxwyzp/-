@@ -1,0 +1,77 @@
+ //进制的转换。注意大小写
+ 十进制转16进制会出现小写现象
+ import java.math.BigInteger;
+    import java.util.*;
+
+    public class Main {
+
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+                for (int i =1000; i <=9999; i++) {
+                    int sum1 = 0;
+                    int sum2 = 0;
+                    int sum3 = 0;//1234
+                    int a = i % 10;
+                    int b = i / 10 % 10;
+                    int c = i / 100 % 10;
+                    int d = i / 1000 % 10;
+                    sum1 = a + b + c + d;
+                    String str = Integer.toString(i, 12).toUpperCase();
+                    char[] chars = str.toCharArray();
+                    for (int j = 0; j < chars.length; j++) {
+                        if (chars[j] == 'A') {
+                            sum2 += 10;
+                            continue;
+                        } else if (chars[j] == 'B') {
+                            sum2 += 11;
+                            continue;
+                        }
+                        sum2 += chars[j] - '0';
+                    }
+                    String strs = Integer.toString(i, 16).toUpperCase();
+                    char[] arr = strs.toCharArray();
+                    for (int j = 0; j <arr.length; j++) {
+                        if (arr[j] == 'A') {
+                            sum3 += 10;
+                            continue;
+                        } else if (arr[j] == 'B') {
+                            sum3 += 11;
+                            continue;
+                        } else if (arr[j] == 'C') {
+                            sum3 += 12;
+                            continue;
+                        } else if (arr[j] == 'D') {
+                            sum3 += 13;
+                            continue;
+                        } else if (arr[j] == 'E') {
+                            sum3 += 14;
+                            continue;
+                        } else if (arr[j] == 'F') {
+                            sum3 += 15;
+                            continue;
+                        }
+                        sum3 += arr[j] - '0';
+
+                    }
+                    if (sum1 == sum2 & sum1 == sum3 & sum2 == sum3) {
+                        System.out.println(i);
+                    }
+
+
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
