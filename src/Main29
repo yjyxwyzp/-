@@ -1,0 +1,60 @@
+    
+
+//偶数求和，从掌握的不是很好到一遍c，细节特别多，需要注意
+import java.math.BigInteger;
+    import java.util.*;
+
+    public class Main {
+
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while(sc.hasNext()){
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            int a = m;
+            int sum=2;
+            int arr[] = new int[n+1];
+                for (int i = 1; i <arr.length ; i++) {
+                    arr[i]=sum;
+                    sum+=2;
+                }
+                int sum2 = 0;
+                int jj=0;
+                for (int i = 1; i <=m ; i++) {
+                    sum2+=arr[i];
+                    if(i+1==arr.length&i<m) {
+                        System.out.print(" "+sum2/(n%a));
+                        break;
+                    }else if(i==m){
+                        if(jj==0) {
+                            System.out.print(sum2 / a);
+                            jj++;
+                        }else{
+                            System.out.print(" "+sum2/a);
+                        }
+                        if(i+1==arr.length){
+                            break;
+                        }
+                        m+=a;
+                        sum2=0;
+                    }
+                }
+                System.out.println();
+                }
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
