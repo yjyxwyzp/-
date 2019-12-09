@@ -1,0 +1,35 @@
+//最小公倍数的求法 欧几里得算法
+
+import java.math.BigInteger;
+import java.util.*;
+public class Main1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        while (n-- > 0) {
+            int k = sc.nextInt();
+            int sum = 1;
+            for (int i = 0; i < k; i++) {
+                int p = sc.nextInt();
+                sum *=  p / ff(sum, p);
+            }
+            System.out.println(sum);
+        }
+    }
+    public static int ff(int x,int y){
+        int r ;
+        while(y!=0){
+            r=x%y;
+            x=y;
+            y=r;
+        }
+        return x;
+
+    }
+
+
+
+
+    }
+
+
