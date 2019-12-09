@@ -1,0 +1,54 @@
+//绝对值最大值的求法，记住最大值，每次与最大值比较  
+  import java.math.BigInteger;
+    import java.util.*;
+
+    public class Main {
+
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while (sc.hasNext()) {
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            int [][]arr = new int[n][m];
+            int[]arrs = new int[n*m];
+            int jj=0;
+                for (int i = 0; i <arr.length ; i++) {
+                    for (int j = 0; j <arr[0].length ; j++) {
+                        arr[i][j]=sc.nextInt();
+                        arrs[jj]=arr[i][j];
+                        jj++;
+                    }
+                }
+                int max  = arrs[0];
+                for (int i = 1; i <arrs.length ; i++) {
+                    if(Math.abs(arrs[i])>Math.abs(max)){
+                        max =arrs[i];
+                    }
+                }
+                ff:for (int i = 0; i <arr.length ; i++) {
+                    for (int j = 0; j <arr[0].length ; j++) {
+                        if(arr[i][j]==max){
+                            System.out.print((i+1)+" "+(j+1)+" "+max);
+                            System.out.println();
+                            break ff;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
