@@ -1,0 +1,49 @@
+//排序知识，水题
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main2 {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            if(n==0){
+                break;
+            }
+            int[]arr = new int[n];
+            int[]arrs = new int[n];
+            for (int i = 0; i <arr.length ; i++) {
+                arr[i]=sc.nextInt();
+                arrs[i]=arr[i];
+            }
+            Arrays.sort(arr);
+            int min = arr[0];
+            int temp=1;
+            for (int i = 0; i <arrs.length ; i++) {
+                if(i==0){
+                    temp=arrs[0];
+                    arrs[0]=min;
+                    continue;
+                }
+                if(arrs[i]==min){
+                    arrs[i]=temp;
+                }
+            }
+            for (int i = 0; i <arrs.length ; i++) {
+                if(i==0){
+                System.out.print(arrs[i]);
+            }else{
+                    System.out.print(" "+arrs[i]);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+            }
+
+
+
+
+
