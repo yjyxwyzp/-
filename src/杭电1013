@@ -1,0 +1,43 @@
+
+//此题不能直接录入数据，因为数据过大，所以必须以字符串的形式录入。然后转成和的形式
+
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+        String str = sc.nextLine();
+        if(str.equals(0)){
+            break;
+        }
+        int n = 0;
+        char[]chars=str.toCharArray();
+            for (int i = 0; i <chars.length ; i++) {
+                n+=chars[i]-'0';
+            }
+        int sum=0;
+        while(n!=0){
+            sum+=n%10;
+            n/=10;
+            if(n==0){
+                if(sum>=10){
+                    n=sum;
+                    sum=0;
+                }else{
+                    System.out.println(sum);
+                }
+            }
+        }
+
+
+        }
+    }
+            }
+
+
+
+
+
