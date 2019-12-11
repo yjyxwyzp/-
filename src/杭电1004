@@ -1,0 +1,56 @@
+//字符串的判定相等要用到 equals语法 
+
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int n = sc.nextInt();
+            if(n==0){
+                break;
+            }
+            sc.nextLine();
+            String[] str = new String[n];
+            for (int i = 0; i < str.length; i++) {
+                str[i] = sc.nextLine();
+            }
+            int arr[] = new int[n];
+            int sum = 0;
+            for (int i = 0; i < str.length; i++) {
+                for (int j = 0; j < str.length; j++) {
+                    if (str[i].equals(str[j])) {
+                        sum++;
+                    }
+                }
+                arr[i] = sum;
+                sum = 0;
+            }
+            Arrays.sort(arr);
+            int sum2 = 0;
+            int max = arr[arr.length - 1];
+            ff:
+            for (int i = 0; i < str.length; i++) {
+                for (int j = 0; j < str.length; j++) {
+                    if (str[i].equals(str[j])) {
+                        sum2++;
+                    }
+                }
+                if (sum2 == max) {
+                    System.out.println(str[i]);
+                    break ff;
+                }
+                sum2 = 0;
+            }
+
+
+        }
+    }
+            }
+
+
+
+
+
