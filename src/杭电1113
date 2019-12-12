@@ -1,0 +1,63 @@
+//此题知识点很多
+收获：容器知识，1.想定义一个字符串数组，用list集合，再转成String类型
+2.char数组转成字符串 用String。valueof方法；
+3.一个字符串数组排序，可以用Arrays。sort方法，该字符串数组是按首字母大小写开始排序，升序；
+
+
+
+import java.util.*;
+
+public class Main3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+            List<String> lists = new ArrayList<>();
+            List<String> list1 = new ArrayList<>();
+            while (sc.hasNext()) {
+                String str = sc.nextLine();
+                if (str.equals("XXXXXX")) {
+                    break;
+                }
+                lists.add(str);
+                list1.add(str);
+            }
+            String[] strs = new String[lists.size()];
+            String[] str1 = new String[list1.size()];
+            for (int i = 0; i < lists.size(); i++) {
+                strs[i] = lists.get(i);//把strs排序
+                str1[i] = list1.get(i);
+            }
+            Arrays.sort(strs);
+            Arrays.sort(str1);
+//            for (String i:strs){
+//                System.out.println(i);
+//            }
+            while (sc.hasNext()) {
+                int jj = 0;
+                String str = sc.nextLine();
+                if (str.equals("XXXXXX")) {
+                    break;
+                }
+                char[] chars = str.toCharArray();
+                Arrays.sort(chars);
+                str = String.valueOf(chars);
+                for (int i = 0; i<strs.length; i++) {
+                    String hh = "";
+                    char[] charss = strs[i].toCharArray();
+                    Arrays.sort(charss);
+                    hh = String.valueOf(charss);
+                    if (str.equals(hh)) {
+                        System.out.println(str1[i]);
+                        jj++;
+                    }
+
+                }
+                if (jj == 0) {
+                    System.out.println("NOT A VALID WORD");
+                }
+                System.out.println("******");
+
+
+            }
+        }
+    }
