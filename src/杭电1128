@@ -1,0 +1,32 @@
+
+
+//题目简单，但是要考虑时间的复杂度问题，如何循环两遍，会超时，所以一边加入一边判断，用set集合或者list集合
+知识
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Main1{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+            Set<Integer>sets = new TreeSet<>();
+            int sum=0;
+            for (int i = 1; i <=1000000 ; i++) {
+                int a = i;
+                while(a!=0){
+                    sum+=a%10;
+                    a/=10;
+                }
+                sets.add(sum+i);
+                sum=0;
+                if(sets.contains(i)){
+                    continue;
+                }else{
+                    System.out.println(i);
+                }
+
+
+        }
+    }
+    }
