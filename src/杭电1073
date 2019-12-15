@@ -1,0 +1,130 @@
+
+//      start
+//        ....
+//        ...
+//        ...
+//        ...
+//        可能还有多组....
+//        .....
+
+//        end
+
+//      start
+//        ....
+//        ...
+//        ...
+//        ...
+//        可能还有多组....
+//        .....
+//        end
+
+比较两组start 和  end之间的所有数据是否完全相同
+如果两组数据长度相同，且各个数据相同，则ac
+如果去掉tab 空格。换行后完全一样则是pe
+如果不一样 wrong
+
+
+//难点
+1.字符串的输入。需要while循环。如果不是end就加到str中，如果加完之后跟之前一样。证明是换行'\n'。需要判断一下，然后加上换行
+2.给str加上其他的字符串。str+=  str3  。str+='\n'
+3.字符集合转数组。是Object
+import java.util.*;
+
+public class Main1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.nextLine();
+        ff:while (n-- > 0) {
+            String str1 = sc.nextLine();
+            String str2 = sc.nextLine();//1
+            int k =0;
+            while(k==0) {
+                String str3 = sc.nextLine();
+                if (str3.equals("END")) {
+                    break;
+       ，         } else {
+                    String strx= str2;
+                    str2 += str3;
+                    if(str2.equals(strx)){
+                        str2+='\n';
+                    }
+                }
+            }
+            String str4 = sc.nextLine();
+            String str5 = sc.nextLine();//1
+            while(k==0) {
+                String str3 = sc.nextLine();
+                if (str3.equals("END")) {
+                    break;
+                } else {
+                    String strx= str5;
+                    str5 += str3;
+                    if(str5.equals(strx)){
+                        str5+='\n';
+                    }
+                }
+            }
+
+
+            char[] char2 = str2.toCharArray();
+            char[] char5 = str5.toCharArray();
+            if (char5.length == char2.length) {
+                for (int i = 0; i < char5.length; i++) {
+                    if (char5[i] == char2[i]) {
+                        if (i + 1 == char5.length) {
+                            System.out.println("Accepted");
+                            continue ff;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            }
+            List<Character> list2 = new ArrayList<>();
+            List<Character> list5 = new ArrayList<>();
+            for (int i = 0; i < char2.length; i++) {
+                if (char2[i] == ' ' | char2[i] == '\t' | char2[i] == '\n') {//if(char2[i]!=' '|char2[i]!='\n')
+                    continue;
+                } else {
+                    list2.add(char2[i]);
+                }
+            }
+            for (int i = 0; i < char5.length; i++) {
+                if (char5[i] == ' ' | char5[i] == '\t' | char5[i] == '\n') {
+                   continue;
+
+                }else{
+                    list5.add(char5[i]);
+                }
+            }
+            Object[] arr2 = list2.toArray();
+            Object[] arr5 = list5.toArray();
+            if(arr2.length==arr5.length) {
+                for (int i = 0; i < arr2.length; i++) {
+                    if (arr2[i] == arr5[i]) {
+                        if (i + 1 == arr2.length) {
+                            System.out.println("Presentation Error");
+                            break;
+                        }
+                    } else {
+                        System.out.println("Wrong Answer");
+                        break;
+                    }
+                }
+
+            }else{
+                System.out.println("Wrong Answer");
+            }
+        }
+//      start
+//        ....
+//        ...
+//        ...
+//        ...
+//        可能还有多组....
+//        .....
+//        end
+
+    }
+}
