@@ -1,0 +1,49 @@
+////
+1.此题有两个难点，一个是九余定理
+d%9( 暂时不取0，整除时取9）当d等于9的时候数字根就是9
+一个数d 当d<9的时候 数字根等于d%9
+当d>=10的时候 数字根等于(d-1)%9+1;
+如果用while语句就是超时，需要这点
+2.纪念第一个接触的算法，嘿嘿，快速幂运算；
+用到了进制转换的知识们还有8421码的知识，
+把幂拆解成2进制。 用2^(i-1)(位权值)，从右往左运算，
+(b&1)==1的意思是看二进制b的最后一位是不是1
+>>=是移位运算符
+例如，1100转换成0110
+3.必须注意类型，幂运算会指数爆炸的，会很大很大
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int a = sc.nextInt();
+            if (a == 0) {
+                break;
+            }
+            BigInteger sum = mi(a, a);
+            if (sum.compareTo(BigInteger.valueOf(10)) == 0 | sum.compareTo(BigInteger.valueOf(10)) == 1) {
+                System.out.println(sum.subtract(BigInteger.valueOf(1)).mod(BigInteger.valueOf(9)).add(BigInteger.valueOf(1)));
+            } else {
+                System.out.println(sum.mod(BigInteger.valueOf(9)));
+            }
+        }
+    }
+    public static BigInteger mi(int a, int b) {
+        BigInteger ans = BigInteger.valueOf(1);
+        BigInteger base = BigInteger.valueOf(a);
+        if (a == 0) {
+            return BigInteger.valueOf(0);
+        }
+        while (b != 0) {
+            if ((b & 1) == 1) {
+                ans = ans.multiply(base);
+            }
+            b >>= 1;
+            base = base.multiply(base);
+        }
+        return ans;
+}
+
+}
+
+
