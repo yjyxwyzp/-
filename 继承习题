@@ -1,0 +1,266 @@
+https://www.cnblogs.com/CZM-/p/7467321.html
+
+
+//被private修饰的，是不可以被继承的
+//重写的方法的权限修饰符必须要大于等于父类方法的权限，不然就会报错，
+//ava的继承是单继承，但是可以多重继承，单继承就是一个子类只能继承一个父类，多重继承就是，例如A类继承B类，B类继承C类，所以按照关系就是C类是B类的父类，B类是A类的父类，这是java继承区别于C++继承的一个特性。
+//super关键字：我们可以通过super关键字来实现对父类成员的访问，用来引用当前对象的父类。
+
+
+
+1、	定义一个类Num，这个类有三个整型成员变量a, b, c，在这个类里定义一个可对三个成员变量初始化的构造方法，和一个输出三个变量中最大值的成员方法maxNum().
+定义一个测试类Test，在主方法中，用类Num声明两个对象，对象中的成员变量分别赋值为（1, 3, 5）和（6, 4, 4），分别输出两组数字中的最大值。
+
+
+
+
+
+
+2、	定义一个类Circle表示圆，有一个成员变量r表示半径，有一个构造方法可以对r初始化，类中有一个成员方法area( )可以计算并输出圆的面积（提示：πr²）
+定义一个类Ball表示圆球，继承类Circle，重写area()方法计算并输出球的表面积（提示：4πr²）
+定义一个测试类Test，在主方法中，分别用Circle和Ball创建并实例化对象，半径值为2.3, 分别输出两个对象的面积。
+
+
+
+
+
+
+
+
+
+
+3、定义一个类Even，这个类有两个整型成员变量a, b，在这个类里定义一个可对两个成员
+变量初始化的构造方法，和一个输出两个变量之间所有偶数的成员方法getENum().
+定义一个测试类Test，在主方法中，用类Even声明两个对象，对象中的成员变量分别赋值为（1, 20）和（35,50），调用方法分别输出两组数之间的所有偶数。
+
+
+//3.
+//    public class Main2{
+//        public static void main(String[] args) {
+//         Even test = new Even(1,20);
+//         Even test2 = new Even(35,50);
+//         test.getEnum();
+//         test2.getEnum();
+//        }
+//    }
+//    class Even{
+//        int a;
+//        int b;
+//        public Even(int a,int b){
+//            this.a =a;
+//            this.b=b;
+//        }
+//       public void getEnum(){
+//            for (int i = a; i <=b ; i++) {
+//                if(i%2==0){
+//                    System.out.println(i);
+//                }
+//            }
+//        }
+//    }
+
+4、(1)定义一个矩形类Rect，有两个整型成员变量，其中length表示长度，width表示宽度，
+有一个构造方法可以对两个成员变量length和width进行初始化，类中有一个成员方法
+getArea( )可以计算并输出矩形的面积（提示：length*width）；
+(2)定义一个立方体类Cube，继承类Rect，增加一个整型成员变量height表示高度，有一个构造方法可以对三个成员变量length、width和height进行初始化，重写getArea()方法计算并输出立方体的体积（提示：length*width*height）;
+(3)定义一个测试类Test，在主方法中，分别用类Rect和Cube创建并实例化对象，成员
+变量length、width和height的值分别为3,4,5, 调用方法分别输出两个对象的面积和体
+积。
+4.
+//public class Main2 {
+//    public static void main(String[] args) {
+//        Rect x = new Rect(3, 4);
+//        Cube y = new Cube(3,4,5);
+//        x.getArea();
+//        y.getArea();
+//    }
+//}
+//class Rect {
+//    int length;
+//    int width;
+//
+//    public Rect(int length, int width) {
+//        this.length = length;
+//        this.width = width;
+//    }
+//
+//
+//    public void getArea() {
+//        System.out.println(this.length * this.width);
+//    }
+//}
+//
+//class Cube extends Rect {
+//    int heigtht;
+//    public Cube(int length, int width,int heigtht) {
+//        super(length, width); //通过super关键字将参数name传递给父类构造器
+//        this.heigtht=heigtht;
+//    }
+//    public void getArea() {
+//        System.out.println(length * width * heigtht);
+//    }
+//}
+
+
+6、（1）定义一个人类（Person），类中包含：姓名（name），性别（sex）两个属性；一个包
+含两个参数的构造方法，用于将name和sex属性赋值；一个show（）方法用于打印Person
+的属性值。
+（2）定义Person类的子类学生类（Student），类中包括：学号（ID）一个属性，一个
+包含三个参数的构造方法，前两个参数用于给继承的name和sex属性赋值，第三个参
+数给ID赋值，一个show（）方法用于打印Student的属性信息。
+（3）定义一个测试类Test，分别创建Person对象和Student对象，调用它们的show（）
+方法。
+//6.
+//    public class Main2 {
+//    public static void main(String[] args) {
+//    person p = new person("小圆脸",20);
+//    Student s = new Student(20,"小圆脸","1914010421");
+//    p.show();
+//    s.show();
+//    }
+//}
+//    class person{
+//    String name;
+//    int age;
+//    public person(String name,int age){
+//        this.name = name;
+//        this.age=age;
+//
+//    }
+//    public void show(){
+//        System.out.println("我的年龄"+this.age+"，我的名字"+this.name);
+//    }
+//}
+//    class Student extends person{
+//    String id;
+//    public Student(int age,String name,String id){
+//        super(name, age);
+//        this.id=id;
+//    }
+//      public void show (){
+//           System.out.println(id);
+//    }
+//    }
+
+
+7、定义一个类Calculator，这个类有三个整型成员变量a, b,c，在这个类里定义一个可对三个成员变量初始化的构造方法，和一个输出三个变量平均值的成员方法averageumer().
+定义一个测试类Test，在主方法中，用类Calculator声明一个对象，对象中的成员变量分别赋值为（17, 14, 26），调用方法输出这组数的平均值。
+//7.
+//    public class Main2{
+//    public static void main(String[] args) {
+//    Calculator c = new Calculator(17,14,26);
+//    c.averageumer();
+//    }
+//}
+//    class Calculator{
+//    int a;
+//    int b;
+//    int c;
+//    public  Calculator(int a,int b,int c){
+//        this.a=a;
+//        this.b=b;
+//        this.c=c;
+//
+//    }
+//    public  void averageumer(){
+//        System.out.println((a+b+c)/3.0);
+//    }
+//    }
+
+
+8、设计一个学生类Student，并进行测试。
+（1）Student类中包含姓名（name）、成绩（score）两个属性
+（2）在Student类中定义一个无参的构造方法和一个接收两个参数的构造方法，两个参数分别为姓名和成绩属性赋值。
+（3）在Student类中定义一个表示显示的show()方法，用于输出学生的姓名和成绩。
+（4）在测试类中创建两个Student对象，一个使用无参的构造方法，然后调用方法给姓名和成绩赋值，一个使用有参的构造方法，在构造方法中给姓名和成绩赋值，并调用显示
+方法
+//8.
+//    public  class Main2{
+//    public static void main(String[] args) {
+//    Student s = new Student();
+//    s.name="饭饭";
+//    s.score=100;
+//    Student s2 = new Student("范雨欣",100);
+//    s.show();
+//    s2.show();
+//    }
+//}
+//    class Student{
+//    String name;
+//    int score;
+//    public Student(){
+//
+//    }
+//    public Student(String name,int score){
+//        this.name=name;
+//        this.score=score;
+//
+//    }
+//
+//        public String getName() {
+//            return name;
+//        }
+//
+//        public void setName(String name) {
+//            this.name = name;
+//        }
+//
+//        public int getScore() {
+//            return score;
+//        }
+//
+//        public void setScore(int score) {
+//            this.score = score;
+//        }
+//
+//        public  void show(){
+//        System.out.println("学生的成绩:"+this.score+"学生的名字:"+this.name);
+//    }
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
