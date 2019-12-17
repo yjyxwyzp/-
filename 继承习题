@@ -11,21 +11,66 @@ https://www.cnblogs.com/CZM-/p/7467321.html
 1、	定义一个类Num，这个类有三个整型成员变量a, b, c，在这个类里定义一个可对三个成员变量初始化的构造方法，和一个输出三个变量中最大值的成员方法maxNum().
 定义一个测试类Test，在主方法中，用类Num声明两个对象，对象中的成员变量分别赋值为（1, 3, 5）和（6, 4, 4），分别输出两组数字中的最大值。
 
+public  class Main2{
+    public static void main(String[] args) {
+    Num n = new Num(1,3,5);
+    n.maxNum();
+    }
+}
+class Num{
+    int a;
+    int b ;
+    int c;
+    public Num(int a ,int b ,int c){
+        this.a =a;
+        this.b = b;
+        this.c = c;
+    }
+    public void maxNum(){
+        int max = a;
+        if (b > max) {
+        max = b;
 
+        }
+        if(c>max){
+            max = c;
+        }
+        System.out.println(max);
+        }
 
-
+    }
 
 
 2、	定义一个类Circle表示圆，有一个成员变量r表示半径，有一个构造方法可以对r初始化，类中有一个成员方法area( )可以计算并输出圆的面积（提示：πr²）
 定义一个类Ball表示圆球，继承类Circle，重写area()方法计算并输出球的表面积（提示：4πr²）
 定义一个测试类Test，在主方法中，分别用Circle和Ball创建并实例化对象，半径值为2.3, 分别输出两个对象的面积。
 
+public  class Main2{
+    public static void main(String[] args) {
+    Circlr c = new Circlr(2.3);
+    Ball b = new Ball(2.3);
+    c.area();
+    b.area();
 
-
-
-
-
-
+    }
+}
+class Circlr{
+    double r ;
+    public  Circlr(double r){
+        this.r=r;
+    }
+    public void area(){
+        System.out.println(3.14*r*r);
+    }
+}
+class Ball extends  Circlr{
+    public Ball(double r){
+        super(r);
+    }
+    public  void area(){
+        System.out.println(4*3.14*r*r);
+    }
+}
 
 
 
@@ -34,31 +79,29 @@ https://www.cnblogs.com/CZM-/p/7467321.html
 定义一个测试类Test，在主方法中，用类Even声明两个对象，对象中的成员变量分别赋值为（1, 20）和（35,50），调用方法分别输出两组数之间的所有偶数。
 
 
-//3.
-//    public class Main2{
-//        public static void main(String[] args) {
-//         Even test = new Even(1,20);
-//         Even test2 = new Even(35,50);
-//         test.getEnum();
-//         test2.getEnum();
-//        }
-//    }
-//    class Even{
-//        int a;
-//        int b;
-//        public Even(int a,int b){
-//            this.a =a;
-//            this.b=b;
-//        }
-//       public void getEnum(){
-//            for (int i = a; i <=b ; i++) {
-//                if(i%2==0){
-//                    System.out.println(i);
-//                }
-//            }
-//        }
-//    }
-
+3.
+    public class Main2{
+        public static void main(String[] args) {
+         Even test = new Even(1,20);
+         Even test2 = new Even(35,50);
+         test.getEnum();
+         test2.getEnum();
+        }
+    }
+    class Even{
+        int a;
+       int b;
+       public Even(int a,int b){
+           this.a =a;
+            this.b=b;
+       }
+     public void getEnum(){
+           for (int i = a; i <=b ; i++) {
+              if(i%2==0){
+                   System.out.println(i);
+               }
+   }
+   }
 4、(1)定义一个矩形类Rect，有两个整型成员变量，其中length表示长度，width表示宽度，
 有一个构造方法可以对两个成员变量length和width进行初始化，类中有一个成员方法
 getArea( )可以计算并输出矩形的面积（提示：length*width）；
@@ -67,39 +110,39 @@ getArea( )可以计算并输出矩形的面积（提示：length*width）；
 变量length、width和height的值分别为3,4,5, 调用方法分别输出两个对象的面积和体
 积。
 4.
-//public class Main2 {
-//    public static void main(String[] args) {
-//        Rect x = new Rect(3, 4);
-//        Cube y = new Cube(3,4,5);
-//        x.getArea();
-//        y.getArea();
-//    }
-//}
-//class Rect {
-//    int length;
-//    int width;
-//
-//    public Rect(int length, int width) {
-//        this.length = length;
-//        this.width = width;
-//    }
-//
-//
-//    public void getArea() {
-//        System.out.println(this.length * this.width);
-//    }
-//}
-//
-//class Cube extends Rect {
-//    int heigtht;
-//    public Cube(int length, int width,int heigtht) {
-//        super(length, width); //通过super关键字将参数name传递给父类构造器
-//        this.heigtht=heigtht;
-//    }
-//    public void getArea() {
-//        System.out.println(length * width * heigtht);
-//    }
-//}
+public class Main2 {
+    public static void main(String[] args) {
+       Rect x = new Rect(3, 4);
+       Cube y = new Cube(3,4,5);
+        x.getArea();
+       y.getArea();
+   }
+}
+class Rect {
+  int length;
+    int width;
+
+   public Rect(int length, int width) {
+       this.length = length;
+       this.width = width;
+   }
+
+
+   public void getArea() {
+        System.out.println(this.length * this.width);
+    }
+}
+
+class Cube extends Rect {
+    int heigtht;
+    public Cube(int length, int width,int heigtht) {
+        super(length, width); //通过super关键字将参数name传递给父类构造器
+        this.heigtht=heigtht;
+   }
+    public void getArea() {
+       System.out.println(length * width * heigtht);
+    }
+}
 
 
 6、（1）定义一个人类（Person），类中包含：姓名（name），性别（sex）两个属性；一个包
@@ -110,62 +153,62 @@ getArea( )可以计算并输出矩形的面积（提示：length*width）；
 数给ID赋值，一个show（）方法用于打印Student的属性信息。
 （3）定义一个测试类Test，分别创建Person对象和Student对象，调用它们的show（）
 方法。
-//6.
-//    public class Main2 {
-//    public static void main(String[] args) {
-//    person p = new person("小圆脸",20);
-//    Student s = new Student(20,"小圆脸","1914010421");
-//    p.show();
-//    s.show();
-//    }
-//}
-//    class person{
-//    String name;
-//    int age;
-//    public person(String name,int age){
-//        this.name = name;
-//        this.age=age;
-//
-//    }
-//    public void show(){
-//        System.out.println("我的年龄"+this.age+"，我的名字"+this.name);
-//    }
-//}
-//    class Student extends person{
-//    String id;
-//    public Student(int age,String name,String id){
-//        super(name, age);
-//        this.id=id;
-//    }
-//      public void show (){
-//           System.out.println(id);
-//    }
-//    }
+6.
+    public class Main2 {
+    public static void main(String[] args) {
+   person p = new person("小圆脸",20);
+    Student s = new Student(20,"小圆脸","1914010421");
+    p.show();
+    s.show();
+    }
+}
+    class person{
+    String name;
+    int age;
+    public person(String name,int age){
+        this.name = name;
+        this.age=age;
+
+    }
+    public void show(){
+        System.out.println("我的年龄"+this.age+"，我的名字"+this.name);
+    }
+}
+    class Student extends person{
+    String id;
+    public Student(int age,String name,String id){
+        super(name, age);
+        this.id=id;
+    }
+      public void show (){
+           System.out.println(id);
+   }
+    }
 
 
 7、定义一个类Calculator，这个类有三个整型成员变量a, b,c，在这个类里定义一个可对三个成员变量初始化的构造方法，和一个输出三个变量平均值的成员方法averageumer().
 定义一个测试类Test，在主方法中，用类Calculator声明一个对象，对象中的成员变量分别赋值为（17, 14, 26），调用方法输出这组数的平均值。
-//7.
-//    public class Main2{
-//    public static void main(String[] args) {
-//    Calculator c = new Calculator(17,14,26);
-//    c.averageumer();
-//    }
-//}
-//    class Calculator{
-//    int a;
-//    int b;
-//    int c;
-//    public  Calculator(int a,int b,int c){
-//        this.a=a;
-//        this.b=b;
-//        this.c=c;
-//
-//    }
-//    public  void averageumer(){
-//        System.out.println((a+b+c)/3.0);
-//    }
-//    }
+
+    public class Main2{
+    public static void main(String[] args) {
+    Calculator c = new Calculator(17,14,26);
+    c.averageumer();
+    }
+}
+    class Calculator{
+    int a;
+    int b;
+    int c;
+   public  Calculator(int a,int b,int c){
+        this.a=a;
+        this.b=b;
+        this.c=c;
+
+    }
+    public  void averageumer(){
+        System.out.println((a+b+c)/3.0);
+   }
+    }
 
 
 8、设计一个学生类Student，并进行测试。
@@ -174,49 +217,49 @@ getArea( )可以计算并输出矩形的面积（提示：length*width）；
 （3）在Student类中定义一个表示显示的show()方法，用于输出学生的姓名和成绩。
 （4）在测试类中创建两个Student对象，一个使用无参的构造方法，然后调用方法给姓名和成绩赋值，一个使用有参的构造方法，在构造方法中给姓名和成绩赋值，并调用显示
 方法
-//8.
-//    public  class Main2{
-//    public static void main(String[] args) {
-//    Student s = new Student();
-//    s.name="饭饭";
-//    s.score=100;
-//    Student s2 = new Student("范雨欣",100);
-//    s.show();
-//    s2.show();
-//    }
-//}
-//    class Student{
-//    String name;
-//    int score;
-//    public Student(){
-//
-//    }
-//    public Student(String name,int score){
-//        this.name=name;
-//        this.score=score;
-//
-//    }
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public void setName(String name) {
-//            this.name = name;
-//        }
-//
-//        public int getScore() {
-//            return score;
-//        }
-//
-//        public void setScore(int score) {
-//            this.score = score;
-//        }
-//
-//        public  void show(){
-//        System.out.println("学生的成绩:"+this.score+"学生的名字:"+this.name);
-//    }
-//    }
+
+   public  class Main2{
+    public static void main(String[] args) {
+    Student s = new Student();
+    s.name="饭饭";
+    s.score=100;
+   Student s2 = new Student("范雨欣",100);
+    s.show();
+   s2.show();
+   }
+}
+    class Student{
+   String name;
+    int score;
+   public Student(){
+
+    }
+    public Student(String name,int score){
+       this.name=name;
+        this.score=score;
+
+   }
+
+       public String getName() {
+            return name;
+       }
+
+       public void setName(String name) {
+            this.name = name;
+        }
+
+       public int getScore() {
+           return score;
+      }
+
+       public void setScore(int score) {
+           this.score = score;
+       }
+
+       public  void show(){
+      System.out.println("学生的成绩:"+this.score+"学生的名字:"+this.name);
+   }
+    }
 
 
 
