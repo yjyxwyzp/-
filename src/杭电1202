@@ -1,0 +1,57 @@
+A90 - 100 4 点
+B80 - 89 3 点
+C70 - 79 2 点
+D60 - 69 1 点
+E0 - 59 0 点
+
+
+//此题巨坑，题目中并没有说是整数还是小数，所有有的右边小于90（89.5） 有这种情况
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int n = sc.nextInt();
+            double sum1 = 0;
+            double sum2 = 0;
+            while (n-- > 0) {
+                double s = sc.nextDouble();
+                double p = sc.nextDouble();
+                if (p == -1) {
+                    continue;
+                }
+                if (p >= 90 && p <= 100) {
+                    sum1 += s;
+                    sum2 += s * 4;
+                }
+                if (p >= 80 && p < 90) {
+                    sum1 += s;
+                    sum2 += s * 3;
+                }
+                if (p >= 70 && p < 80) {
+                    sum1 += s;
+                    sum2 += s * 2;
+                }
+                if (p >= 60 && p < 70) {
+                    sum1 += s;
+                    sum2 += s * 1;
+                }
+                if (p >= 0 && p < 60) {
+                    sum1 += s;
+                    sum2 += s * 0;
+                }
+
+
+            }
+            if (sum1 == 0) {
+                System.out.println("-1");
+            } else {
+                System.out.printf("%.2f", sum2 / sum1);
+                System.out.println();
+            }
+        }
+    }
+}
+
