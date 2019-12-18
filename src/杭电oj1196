@@ -1,0 +1,27 @@
+//一遍ac
+因为学习了快幂的相关知识
+1.>>=这个符号是将一个数转成2进制数并且左移位一个数。是移位符号
+2.（&1）这个符号是看二进制数最后一个数是不是相关数字
+3.有了这些知识，此题易解
+
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            int n = sc.nextInt();
+            if(n==0){
+                break;
+            }
+            int k=0;
+            while(n!=0){
+                if((n&1)==1){
+                    System.out.println((int)Math.pow(2,k));
+                    break;
+                }
+                k++;
+                n>>=1;
+            }
+        }
+    }
+}
