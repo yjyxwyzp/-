@@ -1,0 +1,41 @@
+//也是一遍ac，有点开心hh
+//此题思路就是用二维数组把这些数都分割开，然后按照规律将其都重新排列一次
+最后输出时按列往外输出
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+        int n = sc.nextInt();
+        if(n==0){
+            break;
+        }
+        sc.nextLine();
+        String str = sc.nextLine();
+        char[]chars = str.toCharArray();
+        char[][]charf = new char[chars.length/n][n];
+        int k=0;
+            for (int i = 0; i <charf.length ; i++) {
+                if((i+1)%2!=0){
+                    for (int j = 0; j <charf[0].length ; j++) {
+                        charf[i][j]=chars[k];
+                        k++;
+                    }
+                }else{
+                    for (int j =charf[0].length-1 ;j>=0; j--) {
+                        charf[i][j]=chars[k];
+                        k++;
+                    }
+                }
+
+            }
+            for (int i = 0; i <charf[0].length ; i++) {
+                for (int j = 0; j <charf.length ; j++) {
+                    System.out.print(charf[j][i]);
+                }
+            }
+            System.out.println();
+        }
+    }
+}
