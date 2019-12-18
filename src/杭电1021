@@ -1,0 +1,61 @@
+此题做了无遍，
+原因如下，对于二月份的处理 如果月份大于二月份就要考虑是平年还是润年了
+闰年的判断方法是能被4整除不能被100整除，或者能被400整除，闰年的二月份有29天
+此题比较麻烦，需要仔细，再仔细，再就是可能咱有点笨，想得时间得长一点，不然反应不过来。加油！脑子越用越好使
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.nextLine();
+        while (n-- > 0) {
+            String str = sc.nextLine();
+            String[] strs = str.split("-");
+            int year = Integer.parseInt(strs[0]);
+            int moneth = Integer.parseInt(strs[1]);
+            int day = Integer.parseInt(strs[2]);
+            if (((year + 18) % 4 == 0 & ((year + 18) % 100 != 0)) | (year + 18) % 400 == 0) {
+
+            } else {
+                if (moneth == 2 & day == 29) {
+                    System.out.println("-1");
+                    continue;
+                }
+            }
+            int[] arr = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30};
+            int sum1 = 0;
+            for (int i = 0; i <moneth ; i++) {
+                sum1+=arr[i];
+            }
+            int sum4 =0;
+            if((((year+18) % 4 == 0 & (year+18) % 100 != 0) | (year+18)% 400 == 0)&moneth>2){
+                sum4=sum1+1+day;
+            }else{
+                sum4=sum1+day;
+            }
+            int sum2 = 0;
+            if((year % 4 == 0 & year % 100 != 0) | year% 400 == 0) {
+                if (moneth > 2) {
+                    sum1 += 1;
+                    sum2 = 366 - sum1-day;
+                } else {
+                    sum2 = 366 - sum1-day;
+                }
+            }else{
+                sum2=365-sum1-day;
+            }
+            int sum3 = 0;
+            for (int i = year + 1; i < year + 18; i++) {
+                if ((i % 4 == 0 & i % 100 != 0) | i % 400 == 0) {
+                    sum3++;
+                }
+            }
+
+            System.out.println(365 * 17 + sum3 + sum2+sum4);
+        }
+
+    }
+}
