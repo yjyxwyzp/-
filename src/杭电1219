@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()) {
+			String str = sc.nextLine();
+			char[]chars = str.toCharArray();
+		char[]letter = new char[26];
+		char x = 'a';
+		for (int i = 0; i < letter.length; i++) {
+			letter[i]=x;
+			x++;
+		}
+		int sum=0;
+		for (int i = 0; i < letter.length; i++) {
+			for (int j = 0; j < chars.length; j++) {
+				if(letter[i]==chars[j]) {
+					sum++;
+				}
+			}
+			System.out.println(letter[i]+":"+sum);
+			sum=0;
+		}
+		System.out.println();
+		}
+	}
+
+}
