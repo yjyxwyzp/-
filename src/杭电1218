@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()) {
+			String str = sc.nextLine();
+			if(str.equals("ENDOFINPUT")) {
+				break;
+			}
+			String[] strs = str.split(" +");
+			int a = Integer.parseInt(strs[1]);
+			int b = Integer.parseInt(strs[2]);
+			int[][]arr = new int[a][b];
+			for (int i = 0; i < a; i++) {
+				String str1 = sc.nextLine();
+				String []str2 = str1.split("");//将每一个数字挨个存入数组
+				for (int j = 0; j < arr[0].length; j++) {
+					arr[i][j]=Integer.parseInt(str2[j]);
+				}
+			}
+			sc.nextLine();
+			int[][]arrs = new int[a-1][b-1];
+			for (int i = 0; i < arrs.length; i++) {
+				for (int j = 0; j < arrs[0].length; j++) {
+					arrs[i][j]=(arr[i][j]+arr[i][j+1]+arr[i+1][j]+arr[i+1][j+1])/4;
+				}
+			}
+			for (int i = 0; i < arrs.length; i++) {
+				for (int j = 0; j < arrs[0].length; j++) {
+					System.out.print(arrs[i][j]);
+				}
+				System.out.println();
+			}
+		}
+	}
+
+}
