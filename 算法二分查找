@@ -1,0 +1,39 @@
+二分法，也就是折半查找，在有序的数组中查找指定元素，设定最大索引和最小索引，折中查找。如果中间值比指定元素小，low+1，如果中间值比指定元素大，height-1
+如果查不到 返回-1；
+1.
+动图地址，帮助理解
+https://images.morethink.cn/binary-search.gi
+2.
+    算法一： mid = (low + high) / 2
+    算法二： mid = low + (high – low)/2
+
+乍看起来，算法一简洁，算法二提取之后，跟算法一没有什么区别。但是实际上，区别是存在的。
+算法一的做法，在极端情况下，(low + high)存在着溢出的风险，进而得到错误的mid结果，导致程序错误。
+而算法二能够保证计算出来的mid，一定大于low，小于high，不存在溢出的问题
+3.
+代码实现
+public class Main3 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int arr[] = { 2, 5, 6, 8, 9, 4, 7 };
+		Arrays.sort(arr);
+		int deix = getxiabiao(arr, 4);
+		System.out.println(deix);
+	}
+	public static int getxiabiao(int[] arr, int key) {
+		int heigh = 0;
+		int low = 0;
+		int mid = 0;
+		while (low <= heigh) {
+			mid = low - (heigh - low) / 2;
+			if (arr[mid] == key) {
+				return mid;
+			} else if (arr[mid] < key) {
+				low = mid + 1;
+			} else if (arr[mid] < key) {
+				heigh = mid - 1;
+			}
+		}
+		return -1;
+	}
+}
