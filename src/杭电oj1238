@@ -1,0 +1,53 @@
+//思路简单，把小时还有分钟都化成秒储存在一个数组里面然后排序，找出最大最小值，再进行判断
+
+
+public class Main3 {
+	// alphabetic order.字母序
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		while(n-->0) {
+			int nn = sc.nextInt();
+			String []str =new String[nn];
+			int []t = new int[nn*2];
+			sc.nextLine();
+			int k=0;
+			for (int i = 0; i < str.length; i++) {
+				str[i]=sc.nextLine();
+				String []strs = str[i].split(" ");
+				String []strt = strs[1].split(":");
+				String []strtt = strs[2].split(":");
+				t[k]=Integer.parseInt(strt[0])*3600+Integer.parseInt(strt[1])*60+Integer.parseInt(strt[2]);
+				k++;
+				t[k]=Integer.parseInt(strtt[0])*3600+Integer.parseInt(strtt[1])*60+Integer.parseInt(strtt[2]);
+				k++;
+			}
+			Arrays.sort(t);
+			int mint = t[0];
+			int maxt = t[t.length-1];
+			String kaimen = " ";
+			String guanmen = " ";
+			for (int i = 0; i < str.length; i++) {
+				String []strss = str[i].split(" ");
+				String []strtt = strss[1].split(":");
+				String []strttt = strss[2].split(":");
+				if(Integer.parseInt(strtt[0])*3600+Integer.parseInt(strtt[1])*60+Integer.parseInt(strtt[2])==mint) {
+					kaimen = strss[0];
+				}else if(Integer.parseInt(strtt[0])*3600+Integer.parseInt(strtt[1])*60+Integer.parseInt(strtt[2])==maxt) {
+					guanmen = strss[0];//不能用if else 因为else里面可能也不是关门的人
+				}
+				
+				if(Integer.parseInt(strttt[0])*3600+Integer.parseInt(strttt[1])*60+Integer.parseInt(strttt[2])==mint) {
+					kaimen = strss[0];
+				}else if(Integer.parseInt(strttt[0])*3600+Integer.parseInt(strttt[1])*60+Integer.parseInt(strttt[2])==maxt){
+					guanmen = strss[0];
+				}
+			
+			}
+			System.out.print(kaimen+" "+guanmen);
+			System.out.println();
+		}
+		
+	}
+}
