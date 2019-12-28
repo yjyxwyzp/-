@@ -1,0 +1,64 @@
+字符串的截取方法
+string str = "123abc456";        int i = 3;
+
+1. 取字符串的前i个字符
+
+str=str.Substring(0,i);
+
+2. 去掉字符串的前i个字符
+
+str=str.Substring(i);
+
+3. 从右边开始取i个字符
+
+str=str.Substring(str.Length-i);
+
+ 4. 从右边开始去掉i个字符
+
+str=str.Substring(0,str.Length-i);
+
+5. split()+正则表达式来进行截取。   将正则传入split()。返回的是一个字符串数组类型。不过通过这种方式截取会有很大的性能损耗，因为分析正则非常耗时。
+
+ String str = "abc,12,3yy98,0";
+ String[] strs=str.split(",");
+ for(int i=0,len=strs.length;i<len;i++){
+     System.out.print(strs[i].toString()+" ");
+ } 
+
+运行结果：
+
+abc 12 3yy98 0　
+
+6. 通过subString()方法来进行字符串截取。  subString通过不同的参数来提供不同的截取方式
+
+6.1 只传一个参数  例如：
+
+String sb = "bbbdsajjds";
+sb.substring(2);
+将字符串从索引号为2开始截取，一直到字符串末尾。（索引值从0开始）；
+
+6.2 传入2个参数为索引值
+
+String sb = "bbbdsajjds";
+sb.substring(2, 4);
+从索引号2开始到索引好4结束（并且不包含索引4截取在内，也就是说实际截取的是2和3号字符）；
+
+运行结果如下：
+
+bdsajjds
+bd
+
+7. 通过StringUtils提供的方法    (运用StringUtils需要导入相关jar文件，commons-lang3-3.1.jar， import org.apache.commons.lang3.StringUtils;)
+
+第一种方式：
+
+StringUtils.substringBefore(“dskeabcee”, “e”);
+
+ 结果是：
+
+dsk    这里是以第一个”e”，为标准。
+
+第二种方式：
+
+StringUtils.substringBeforeLast(“dskeabcee”, “e”)
+
