@@ -1,0 +1,68 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.Arrays;
+
+public class Main3 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		while (n-- > 0) {
+			int k = sc.nextInt();
+			int[] arr = new int[k + 1];
+			int d[] = new int[k];
+			for (int i = 1; i < arr.length; i++) {
+				arr[i] = sc.nextInt();
+			}
+			if (k == 1) {
+				if(arr[1]<10) {
+				System.out.println("08:00:0"+arr[1]+" am");
+				}else {
+					System.out.println("08:00:"+arr[1]+" am");
+				}
+			} else {
+				for (int i = 1; i < d.length; i++) {
+					d[i] = sc.nextInt();
+				}
+				int[] dp = new int[k + 1];
+				dp[0] = 0;
+				dp[1] = arr[1];
+				for (int i = 2; i < dp.length; i++) {
+					dp[i] = Math.min(dp[i - 1] + arr[i], d[i - 1] + dp[i - 2]);
+				}
+//				    int hour = dp[k] / 3600;
+//	                int min = (dp[k] - hour * 3600) / 60;
+//	                int s = (dp[k] - hour * 3600 - min * 60);
+				int hour=dp[k]/3600;
+				int min=dp[k]/60%60;
+				int s=dp[k]%60;
+	                int sumhour = hour + 8;
+	                if (sumhour < 10) {
+	                    System.out.print("0" + sumhour + ":");
+	                } else {
+	                    System.out.print(sumhour + ":");
+	                }
+	                if (min < 10) {
+	                    System.out.print("0" + min + ":");
+	                } else {
+	                    System.out.print(min + ":");
+	                }
+	                if (s < 10) {
+	                    System.out.print("0" + s + " ");
+	                } else {
+	                    System.out.print(s + " ");
+	                }
+	                if(sumhour>12) {
+	                	System.out.print("pm");
+	                }else {
+	                	System.out.print("am");
+	                }
+	                System.out.println();
+			}
+		}
+	}
+}
