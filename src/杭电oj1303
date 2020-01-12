@@ -1,0 +1,28 @@
+import java.lang.reflect.Array;
+import java.util.*;
+
+public class Main5 {
+	public static void main(String[] args) {
+		// TODO Auto-generated constructor stub
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()) {
+			List<Integer>lists = new ArrayList<>();
+			String str = sc.nextLine();
+			if(str.equals("-1")) {
+				break;
+			}
+			String[] strs = str.split(" ");
+			for (int i = 0; i < strs.length; i++) {
+				lists.add(Integer.parseInt(strs[i]));
+			}			
+			int jj=0;
+			Object[]arr = lists.toArray();
+			for (int i = 0; i < arr.length; i++) {
+				if(lists.contains((Integer)arr[i]*2)) {
+					jj++;
+				}
+			}
+			System.out.println(jj-1);
+		}
+	}
+}
