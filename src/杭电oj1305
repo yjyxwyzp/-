@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main3 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = 0;
+		int jj=1;
+		ff:while(sc.hasNext()) {
+			List<String>lists = new ArrayList<>();
+			while(a==0) {
+			String str = sc.nextLine();
+			if(str.equals("9")) {
+				break;
+			}
+            lists.add(str);
+			}
+			String []arr = new String[lists.size()];
+			for (int i = 0; i < arr.length; i++) {
+				arr[i]=lists.get(i);
+			}
+			String str2 = " ";
+			for (int i = 0; i < arr.length; i++) {
+				char[]char1 = arr[i].toCharArray();
+				
+				for (int j = 0; j < arr.length; j++) {
+					if(j != i) {
+						char[]char2 = arr[j].toCharArray();
+						str2 =arr[j];
+					for (int k = 1; k <= char2.length; k++){
+						String str1 = arr[j].substring(0,k);
+						if(arr[i].equals(str1)) {
+							System.out.println("Set "+jj+" is not immediately decodable");
+							jj++;
+							continue ff;
+						}
+						arr[j]=str2;
+					}
+				
+					}
+				}
+			}
+			System.out.println("Set "+jj+" is immediately decodable");
+			jj++;
+		}
+	}
+}
