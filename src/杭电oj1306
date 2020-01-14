@@ -1,0 +1,88 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            String str = sc.nextLine();
+            if(str.equals("-1")) {
+                break;
+            }
+            String strs[] = str.split(" ");
+            char[] char1 = strs[0].toCharArray();
+            char[] char2 = strs[1].toCharArray();
+            int minlength = 0;
+            int maxlength = 0;
+            int jj = 0;
+            int j = 0;
+            int k = 0;
+            int ff = 0;
+                while (k == 0) {
+                    for (int i = j; i < char2.length; i++) {
+                        if (char1[ff] == char2[i]) {
+                            jj++;
+                        }
+                        ff++;
+                        if(ff>=char1.length) {
+                            break;
+                        }
+                    }
+                    if (jj > maxlength) {
+                        maxlength = jj;
+                    }
+                    if (1 == char2.length - j) {
+                        k++;
+                    }
+                    ff = 0;
+                    j++;
+                    jj = 0;
+                }
+                k=0;
+                ff=0;
+                j=0;
+                jj=0;
+                while (k == 0) {
+                    for (int i = j; i < char1.length; i++) {
+                        if (char2[ff] == char1[i]) {
+                            jj++;
+                        }
+                        ff++;
+                        if(ff>=char2.length) {
+                            break;
+                        }
+                    }
+                    if (jj > maxlength) {
+                        maxlength = jj;
+                    }
+                    if (1 == char1.length - j) {
+                        k++;
+                    }
+                    ff = 0;
+                    j++;
+                    jj = 0;
+                }
+                int commond = maxlength * 2;
+                int fenmu = char1.length + char2.length;
+                int gongyue = gcd(commond, fenmu);
+                if (commond == 0) {
+                    System.out.println("appx(" + strs[0] + "," + strs[1] + ") = " + "0");
+                } else if (commond / gongyue == fenmu / gongyue) {
+                    System.out.println("appx(" + strs[0] + "," + strs[1] + ") = " + "1");
+                } else {
+                    System.out.println("appx(" + strs[0] + "," + strs[1] + ") = " + commond / gongyue + "/" + fenmu / gongyue);
+                }
+            }
+        }
+    
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = a % b;
+            a = b;
+            b = temp;
+        }
+        return a;
+    }
+}
+
